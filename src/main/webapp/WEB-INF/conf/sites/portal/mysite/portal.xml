@@ -11,5 +11,8 @@
         <move-apps-permissions>manager:/platform/administrators</move-apps-permissions>
         <move-containers-permissions>manager:/platform/administrators</move-containers-permissions>
         <page-body> </page-body>
+        <container id="MySiteLayoutContainer" template="war:/groovy/container/MySiteLayoutContainer.gtmpl">
+            <page-body> </page-body>
+        </container>
     </portal-layout>
 </portal-config>
