@@ -1,5 +1,8 @@
 <web-app>
     <display-name>hello-portlet</display-name>
+    <welcome-file-list>
+        <welcome-file>src/main/webapp/jsp/hello.jsp</welcome-file>
+    </welcome-file-list>
     <listener>
         <listener-class>org.exoplatform.container.web.PortalContainerConfigOwner</listener-class>
     </listener>
