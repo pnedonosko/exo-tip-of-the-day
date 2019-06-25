@@ -1,4 +1,4 @@
-$(document).ready(function () {
+// $(document).ready(function () {
 
     console.log("Hello TIP.js");
 
@@ -34,4 +34,4 @@ $(document).ready(function () {
     });
 
 
-});
+// });
