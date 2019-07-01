@@ -8,8 +8,8 @@
     <artifactId>hello-portlet</artifactId>
     <version>1.0</version>
     <modules>
-        <module>restmodul</module>
-        <module>ui</module>
+        <module>tip4day-rest</module>
+        <module>tip4day</module>
     </modules>
     <packaging>pom</packaging>
 
