@@ -57,10 +57,15 @@ public class RestUserService implements ResourceContainer {
             tip.put("text","You mast something write.");
             return tip;
         }
+        Map<String,String> map = tipFromDb.stream().filter(oneTip -> oneTip.get("text").equals(tip.get("text"))).findFirst().orElse(null);
+        if (map == null){
+            tip.put("id", String.valueOf(tipFromDb.size() + 1));
+            tipFromDb.add(tip);
+            return tip;
+        } else {
+            return map;
+        }
 
-        tip.put("id", String.valueOf(tipFromDb.size() + 1));
-        tipFromDb.add(tip);
-        return tip;
     }
 
     @GET
