@@ -59,6 +59,4 @@ public class RestUserService implements ResourceContainer {
         return tipFromDb;
     }
 
-
-
 }
