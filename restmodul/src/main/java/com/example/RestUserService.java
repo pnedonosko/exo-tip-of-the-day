@@ -27,6 +27,18 @@ public class RestUserService implements ResourceContainer {
             put("id", "3");
             put("text", "Nobody understands what he does: just remember this.");
         }});
+        add(new HashMap<String, String>() {{
+            put("id", "4");
+            put("text", "Start the day with a smile: nothing is charging a better one.");
+        }});
+        add(new HashMap<String, String>() {{
+            put("id", "5");
+            put("text", "Make your day-trips in the outdoors.");
+        }});
+        add(new HashMap<String, String>() {{
+            put("id", "6");
+            put("text", "Build a week with a vegetarian. And suddenly you like it?");
+        }});
     }};
 
 
@@ -41,13 +53,11 @@ public class RestUserService implements ResourceContainer {
     @POST
     @Path("/tip")
     public Map<String, String> addNewTip(Map<String, String> tip) {
-        Map<String, String> map = null;
         if ((tip.get("text").trim()).equals("")){
             tip.put("text","You mast something write.");
             return tip;
         }
 
-        if (map!=null) return map;
         tip.put("id", String.valueOf(tipFromDb.size() + 1));
         tipFromDb.add(tip);
         return tip;
