@@ -1,4 +1,4 @@
-package com.acme.samples;
+package com.example;
 
 import org.exoplatform.services.rest.resource.ResourceContainer;
 
