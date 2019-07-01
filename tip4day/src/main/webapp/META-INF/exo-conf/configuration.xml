@@ -12,7 +12,8 @@
             <init-params>
                 <value-param>
                     <name>apply.default</name>
-                    <value>true</value>
+<!--                    <value>true</value>-->
+                    <value>portal</value>
                 </value-param>
                 <object-param>
                     <name>change</name>

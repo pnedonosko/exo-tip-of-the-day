@@ -1,83 +1,33 @@
+<%@ page import="java.util.ResourceBundle" %>
 
-<%--<!DOCTYPE html>--%>
-<%--<html>--%>
-<%--<head>--%>
+<%
+    String contextPath = request.getContextPath();
+%>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-<%--</head>--%>
-<%--<body>--%>
+<link rel="stylesheet" type="text/css" href="<%=contextPath%>/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="<%=contextPath%>/css/some.css"/>
+
+<script src="<%=contextPath%>/js/tip.js"></script>
+<script src="<%=contextPath%>/js/jquery.min.js"></script>
+
+
 
 
 <div class="container">
     <h2>Tip for day</h2>
-    <div id="tip" style="margin: 10px 25px; font-style: italic">
+    <div id="tip">
         Some tip
     </div>
-    <script>
-        console.log("load first tip");
-        $.ajax({
-            url: '/portal/rest/demo/tip',
-            method: 'GET',
-            error: function (xhr) {
-                console.log(xhr);
-            },
-            success: function (data) {
-                $("#tip").text(data.text);
-            }
-        });
-    </script>
     <div id="demo" class="collapse">
         <div>
             <p>Input your tip</p>
-            <textarea id="tipFromArea" maxlength="350" style="width: 100%; height: 70px; resize: none" name="text" r></textarea>
+            <textarea id="tipFromArea" maxlength="350"  name="text"></textarea>
         </div>
     </div>
-    <div style="display: flex; justify-content: left; margin: 15px 25px 0 25px">
-        <a class="btn btn-info" id="nextTip">Next tip</a>
-        <script>
-            console.log("next button click");
-            $("#nextTip").click(function () {
-                $.ajax({
-                    url: '/portal/rest/demo/tip',
-                    method: 'GET',
-                    error: function (xhr) {
-                        console.log(xhr);
-                    },
-                    success: function (data) {
-                        $("#tip").text(data.text);
-                    }
-                });
-            });
-        </script>
-        <a href="#demo" id="addNewTipButton" class="btn btn-info" style="margin: 0 25px">Add new tip</a>
-        <script>
-            console.log("send tip button click");
-            $("#addNewTipButton").click(function () {
-                $("#demo").toggleClass('in');
-                $("#addNewTipButton").text(($("#addNewTipButton").text() === 'Add new tip') ? 'Submitt' : 'Add new tip');
-                if ($("#addNewTipButton").text() === 'Add new tip'){
-                    $.ajax('/portal/rest/demo/tip', {
-                        type: 'POST',
-                        contentType: 'application/json',
-                        data: JSON.stringify({
-                            id: 10,
-                            text: $("#tipFromArea").val()
-                        }),
-                        success: function () {
-                            $("#tip").text(data.text);
-                        },
-                        error: function (jqXHR) {
-                            console.log(jqXHR);
-                        }
-                    });
-                }
-                $("#tipFromArea").val('');
-            });
-        </script>
+    <div id="btnblock">
+        <a class="btn btn-info" id="nextTip" onclick="getRandomTip();">Next tip</a>
+        <script>getRandomTip();</script>
+        <a href="#demo" id="addNewTipButton" class="btn btn-info" onclick="postTip();">Add new tip</a>
     </div>
 </div>
-
-<%--</body>--%>
