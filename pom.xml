@@ -29,7 +29,7 @@
     </repositories>
 
     <build>
-        <finalName>hello-portlet</finalName>
+        <finalName>tip4day-rest</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

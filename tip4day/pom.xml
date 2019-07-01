@@ -12,5 +12,8 @@
     <artifactId>ui</artifactId>
     <packaging>war</packaging>
 
+    <build>
+        <finalName>tip4day</finalName>
+    </build>
 
 </project>
