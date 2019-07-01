@@ -34,7 +34,7 @@
             <textarea id="tipFromArea" maxlength="350" style="width: 100%; height: 70px; resize: none" name="text" r></textarea>
         </div>
     </div>
-    <div style="display: flex; justify-content: space-around; margin: 15px 0 0 0">
+    <div style="display: flex; justify-content: left; margin: 15px 25px 0 25px">
         <a class="btn btn-info" id="nextTip">Next tip</a>
         <script>
             console.log("next button click");
@@ -51,7 +51,7 @@
                 });
             });
         </script>
-        <a href="#demo" id="addNewTipButton" class="btn btn-info">Add new tip</a>
+        <a href="#demo" id="addNewTipButton" class="btn btn-info" style="margin: 0 25px">Add new tip</a>
         <script>
             console.log("send tip button click");
             $("#addNewTipButton").click(function () {
