@@ -2,7 +2,7 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd">
     <portlet>
-        <portlet-name>hello-portlet</portlet-name>
+        <portlet-name>tip4day</portlet-name>
         <portlet-class>com.acme.samples.HelloPortlet</portlet-class>
         <supports>
             <mime-type>text/html</mime-type>
