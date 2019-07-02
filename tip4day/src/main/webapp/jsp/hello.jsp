@@ -11,11 +11,11 @@
 <script src="<%=contextPath%>/js/tip.js"></script>
 <script src="<%=contextPath%>/js/jquery.min.js"></script>
 
-
+<script data-main="js/some" src="<%=contextPath%>/js/require.js"></script>
 
 
 <div class="container">
-    <h2>Tip for day</h2>
+    <h2 onclick="myClick();">Tip for day</h2>
     <div id="tip">
         Some tip
     </div>
