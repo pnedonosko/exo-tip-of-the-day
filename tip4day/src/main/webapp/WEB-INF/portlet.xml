@@ -4,6 +4,12 @@
     <portlet>
         <portlet-name>tip4day</portlet-name>
         <portlet-class>com.acme.samples.HelloPortlet</portlet-class>
+<!--        -->
+        <init-param>
+            <name>portlet-view-dispatched-file-path</name>
+            <value>jsp/hello.jsp</value>
+        </init-param>
+<!--        -->
         <supports>
             <mime-type>text/html</mime-type>
         </supports>
@@ -12,3 +18,8 @@
         </portlet-info>
     </portlet>
 </portlet-app>
+
+
+<!--    <portlet-name>vueSample</portlet-name>-->
+<!--    <portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>-->
+
