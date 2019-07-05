@@ -5,11 +5,26 @@
 ---------------------------
 When server start it have six tip in memory. 
 ---------------------------
+
+- ### Get a tip
+
+Server find tip by {id} and return it
+
+GET `/portal/rest/demo/tip/{id}`
+
+
+Response 200
+
+    {
+        "id":"1",
+        "text":"Do not interact with people who are not very fit for you."
+    }
+
 - ### Get a full list of all tips
 
 Server return a list of all tips
 
-GET `/portal/rest/demo/tips`
+GET `/portal/rest/demo/tip`
 
 
 Response 200
@@ -47,12 +62,40 @@ Response 200
         "id":"7",
         "text":"Some tip thet you add to server"
     }
+
+- ### Update existing tip
+
+Server find tip by {id} and update it in memory and return it
+
+PUT `/portal/rest/demo/tip/{id}`
+
+    DATA:   {
+                "id":"7",
+                "text"   : "Some tip thet you change",
+            }
+
+
+Response 200
+
+    {
+        "id":"7",
+        "text":"Some tip thet you change"
+    }
+    
+- ### Delete existing tip
+
+Server find tip by {id} and delete it
+
+DELETE `/portal/rest/demo/tip/{id}`
+
+Response 200
+
     
 - ### Get random tip
 
 Server return a random tip
 
-GET `/portal/rest/demo/tip`
+GET `/portal/rest/demo/random-tip`
 
 
 Response 200

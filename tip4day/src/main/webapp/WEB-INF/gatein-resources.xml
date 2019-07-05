@@ -23,11 +23,6 @@
         <depends>
             <module>eXoVueI18n</module>
         </depends>
-<!--        <depends>-->
-<!--            <module>jquery</module>-->
-<!--            <as>jQuery</as>-->
-<!--            <resource>/js/jquery.min.js</resource>-->
-<!--        </depends>-->
     </module>
 
 </gatein-resources>
