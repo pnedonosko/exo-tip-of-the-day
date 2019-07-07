@@ -42,7 +42,7 @@ public class RestUserService implements ResourceContainer {
     @POST
     @Path("/tip")
     public Map<String, String> addNewTip(Map<String, String> tip) {
-        if ((tip.get("text").trim()).equals("")){
+        if (tip.get("text") == null || (tip.get("text").trim()).equals("")){
             tip.put("text","You mast something write.");
             return tip;
         }
