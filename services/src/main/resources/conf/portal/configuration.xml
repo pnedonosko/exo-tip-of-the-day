@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+
+  Copyright (C) 2019 eXo Platform SAS.
+
+  This is free software; you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License as
+  published by the Free Software Foundation; either version 2.1 of
+  the License, or (at your option) any later version.
+
+  This software is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  Lesser General Public License for more details.
+
+  You should have received a copy of the GNU Lesser General Public
+  License along with this software; if not, write to the Free
+  Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+  02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+  xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+
+  <component>
+    <type>org.exoplatform.tipoftheday.TipOfTheDayService</type>
+    <init-params>
+      <values-param>
+        <name>initial.tips</name>
+        <value>Hire character. Train skill.</value>
+        <value>If you are not taking care of your customer, your competitor will.</value>
+        <value>If you cannot do great things, do small things in a great way.</value>
+        <value>Without a customer, you don't have a business -- all you have is a hobby.</value>
+        <value>Pretend that every single person you meet has a sign around his or her neck that says, 'Make me feel important.' Not only will you succeed in sales, you will succeed in life.</value>
+        <value>I didn't get there by wishing for it or hoping for it, but by working for it.</value>
+        <value>Being good in business is the most fascinating kind of art. Making money is art and working is art and good business is the best art.</value>
+        <value>Working hard for something we don't care about is called stressed; working hard for something we love is called passion.</value>
+        <value>Do not interact with people who are not very fit for you.</value>
+        <value>Do not be afraid to take risks, you can change everything.</value>
+        <value>Nobody understands what he does: just remember this.</value>
+        <value>Start the day with a smile: nothing is charging a better one.</value>
+        <value>Make your day-trips in the outdoors.</value>
+        <value>Everyone lives by selling something.</value>
+        <value>Build a week with a vegetarian. And suddenly you like it?</value>
+        <value>Always do your best. What you plant now, you will harvest later.</value>
+      </values-param>
+    </init-params>
+  </component>
+
+  <component>
+    <type>org.exoplatform.tipoftheday.RESTTipOfTheDayService</type>
+  </component>
+</configuration>

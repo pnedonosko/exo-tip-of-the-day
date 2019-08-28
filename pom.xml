@@ -1,96 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<!--
 
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.acme.samples</groupId>
-    <artifactId>hello-portlet</artifactId>
-    <version>1.0</version>
-    <modules>
-        <module>tip4day-rest</module>
-        <module>tip4day</module>
-    </modules>
-    <packaging>pom</packaging>
+  Copyright (C) 2019 eXo Platform SAS.
 
-    <name>maven</name>
-    <url>http://maven.apache.org</url>
+  This is free software; you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License as
+  published by the Free Software Foundation; either version 2.1 of
+  the License, or (at your option) any later version.
 
-    <properties>
-        <project.version>5.0.x</project.version>
-        <exoplatform.version>5.0.0</exoplatform.version>
-    </properties>
+  This software is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  Lesser General Public License for more details.
 
-    <repositories>
-        <repository>
-            <id>eXo-pub-repo</id>
-            <url>http://repository.exoplatform.org/public</url>
-        </repository>
-    </repositories>
+  You should have received a copy of the GNU Lesser General Public
+  License along with this software; if not, write to the Free
+  Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+  02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
-    <build>
-        <finalName>tip4day-rest</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>addons-parent-pom</artifactId>
+    <groupId>org.exoplatform.addons</groupId>
+    <version>10</version>
+  </parent>
+
+  <groupId>org.exoplatform.addons.tipoftheday</groupId>
+  <artifactId>tipoftheday</artifactId>
+  <version>1.0.x-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Tip of the Day application</name>
+  <description>Tip of the Day portal extension for eXo Platform</description>
+
+  <scm>
+    <connection>scm:git:git@github.com:pnedonosko/exo-tip-of-the-day.git</connection>
+    <developerConnection>scm:git:git@github.com:pnedonosko/exo-tip-of-the-day.git</developerConnection>
+    <tag>HEAD</tag>
+    <url>https://github.com/pnedonosko/exo-tip-of-the-day</url>
+  </scm>
+
+  <modules>
+    <module>services</module>
+    <module>webapp</module>
+    <module>packaging</module>
+  </modules>
+
+  <properties>
+      <!-- Defaut compiler settings -->
+    <maven.compiler.optimize>true</maven.compiler.optimize>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <!-- eXo Modules -->
+    <!-- **************************************** -->
+    <!-- Dependencies versions                    -->
+    <!-- **************************************** -->
+    <org.exoplatform.depmgt.version>15</org.exoplatform.depmgt.version>
+    <org.exoplatform.platform.version>5.2.0</org.exoplatform.platform.version>
+    <!-- for tests -->
+    <junit.version>4.12</junit.version>
+    <mockito.version>2.0.13-beta</mockito.version>
+  </properties>
+
+  <dependencyManagement>
     <dependencies>
-        <dependency>
-            <groupId>javax.portlet</groupId>
-            <artifactId>portlet-api</artifactId>
-            <version>2.0</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.exoplatform.ws</groupId>
-            <artifactId>exo.ws.rest.core</artifactId>
-            <version>2.3.7-GA</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.exoplatform.core</groupId>
-            <artifactId>exo.core.component.organization.api</artifactId>
-            <version>2.6.0-GA</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.annotation</groupId>
-            <artifactId>jsr250-api</artifactId>
-            <version>1.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.metaparadigm</groupId>
-            <artifactId>json-rpc</artifactId>
-            <version>1.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.ws.rs</groupId>
-            <artifactId>jsr311-api</artifactId>
-            <version>1.1.1</version>
-        </dependency>
+      <!-- Import versions of external dependencies to use -->
+      <dependency>
+        <groupId>org.exoplatform</groupId>
+        <artifactId>maven-depmgt-pom</artifactId>
+        <version>${org.exoplatform.depmgt.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- Import versions from platform project -->
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform</artifactId>
+        <version>${org.exoplatform.platform.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+        <!-- Extension modules -->
+      <dependency>
+        <groupId>org.exoplatform.addons.tipoftheday</groupId>
+        <artifactId>tipoftheday-services</artifactId>
+        <version>${project.version}</version>
+        <type>jar</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.addons.tipoftheday</groupId>
+        <artifactId>tipoftheday-webapp</artifactId>
+        <version>${project.version}</version>
+        <type>war</type>
+      </dependency>
+      <!-- for tests -->
+      <dependency>
+        <groupId>org.exoplatform</groupId>
+        <artifactId>exo-jcr-services</artifactId>
+        <version>${org.exoplatform.platform.version}</version>
+        <type>jar</type>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>${mockito.version}</version>
+        <scope>test</scope>
+      </dependency>
     </dependencies>
+  </dependencyManagement>
 
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.exoplatform.platform</groupId>
-                <artifactId>platform</artifactId>
-                <version>${exoplatform.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <configuration>
+            <systemPropertyVariables>
+              <org.apache.commons.logging.Log>org.apache.commons.logging.impl.SimpleLog</org.apache.commons.logging.Log>
+              <org.apache.commons.logging.simplelog.defaultlog>info</org.apache.commons.logging.simplelog.defaultlog>
+              <org.apache.commons.logging.simplelog.log.org.exoplatform>debug</org.apache.commons.logging.simplelog.log.org.exoplatform>
+              <org.apache.commons.logging.simplelog.log.net.hibernate>warn</org.apache.commons.logging.simplelog.log.net.hibernate>
+              <java.naming.factory.initial>org.exoplatform.services.naming.SimpleContextFactory</java.naming.factory.initial>
+              <maven.exoplatform.dir>${project.build.directory}</maven.exoplatform.dir>
+              <gatein.test.tmp.dir>${project.build.directory}</gatein.test.tmp.dir>
+              <java.util.logging.config.class>org.exoplatform.component.test.logging.LogConfigurator</java.util.logging.config.class>
+              <com.arjuna.ats.arjuna.objectstore.objectStoreDir>${project.build.directory}</com.arjuna.ats.arjuna.objectstore.objectStoreDir>
+              <exo.profiles>hsqldb</exo.profiles>
+            </systemPropertyVariables>
+            <systemProperties>
+              <property>
+                <name>gatein.test.output.path</name>
+                <value>${project.build.directory}</value>
+              </property>
+            </systemProperties>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
 </project>
