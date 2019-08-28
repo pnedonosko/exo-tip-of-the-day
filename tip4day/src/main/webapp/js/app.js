@@ -59,7 +59,7 @@
 
     function init() {
         new Vue({
-            el: '#vueSample',
+            el: '#tip4day-app',
             template: '<app :tip="tip" />',
             data: {
                 tip: 'Some tip was be here.',

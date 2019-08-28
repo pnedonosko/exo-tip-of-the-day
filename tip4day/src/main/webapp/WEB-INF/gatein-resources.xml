@@ -6,16 +6,16 @@
         <name>tip4day</name>
         <module>
             <depends>
-                <module>vueSampleBundle</module>
+                <module>tip4dayBundle</module>
             </depends>
         </module>
     </portlet>
 
     <module>
-        <name>vueSampleBundle</name>
+        <name>tip4dayBundle</name>
         <script>
             <minify>false</minify>
-            <path>/js/sample.js</path>
+            <path>/js/app.js</path>
         </script>
         <depends>
             <module>vue</module>

@@ -18,7 +18,7 @@
                 <value>top-social-container</value>
             </value-param>
             <object-param>
-                <name>help-portlet</name>
+                <name>tip4day-portlet</name>
                 <description></description>
                 <object type="org.exoplatform.portal.config.serialize.PortletApplication">
                     <field name="state">
