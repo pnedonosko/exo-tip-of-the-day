@@ -60,6 +60,7 @@
     <!-- **************************************** -->
     <org.exoplatform.depmgt.version>15</org.exoplatform.depmgt.version>
     <org.exoplatform.platform.version>5.2.0</org.exoplatform.platform.version>
+    <com.github.eirslett.frontend.version>1.8.0</com.github.eirslett.frontend.version>
     <!-- for tests -->
     <junit.version>4.12</junit.version>
     <mockito.version>2.0.13-beta</mockito.version>
@@ -145,6 +146,12 @@
               </property>
             </systemProperties>
           </configuration>
+        </plugin>
+        <!-- Maven Plugin for JS and CSS bundling and Unit Test execution -->
+        <plugin>
+          <groupId>com.github.eirslett</groupId>
+          <artifactId>frontend-maven-plugin</artifactId>
+          <version>${com.github.eirslett.frontend.version}</version>
         </plugin>
       </plugins>
     </pluginManagement>

@@ -27,38 +27,32 @@
     <application-name>tipoftheday</application-name>
     <portlet-name>TipOfTheDayPortlet</portlet-name>
     <skin-name>Default</skin-name>
-    <css-path>/css/app.css</css-path>
+    <css-path>/css/index.css</css-path>
     <overwrite>true</overwrite>
   </portlet-skin>
   <portlet-skin>
     <application-name>tipoftheday</application-name>
     <portlet-name>TipOfTheDayPortlet</portlet-name>
     <skin-name>Enterprise</skin-name>
-    <css-path>/css/app.css</css-path>
+    <css-path>/css/index.css</css-path>
     <overwrite>true</overwrite>
   </portlet-skin>
 
-  <!-- portlet>
+  <portlet>
     <name>TipOfTheDayPortlet</name>
     <module>
       <depends>
         <module>tipofthedayBundle</module>
       </depends>
     </module>
-  </portlet -->
+  </portlet>
 
   <module>
-    <name>tipofthedayApp</name>
+    <name>tipofthedayBundle</name>
     <script>
       <minify>false</minify>
-      <path>/js/app.js</path>
+      <path>/js/tiphome.bundle.js</path>
     </script>
-    <depends>
-      <module>vue</module>
-    </depends>
-    <depends>
-      <module>eXoVueI18n</module>
-    </depends>
   </module>
 
 </gatein-resources>
