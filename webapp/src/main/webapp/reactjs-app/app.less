@@ -1,0 +1,62 @@
+$smallWidth : 25px;
+$mediumWidth : 35px;
+$bigWidth : 105px;
+$biggerWidth : 380px;
+
+
+.tip{
+  &__container{
+    padding-left: 100px;
+    &-about{
+      width: $smallWidth;
+    }
+    &-text{
+      width: $biggerWidth;
+    }
+    &-user{
+      width: $bigWidth;
+    }
+    &-datetime{
+      width: $bigWidth;
+    }
+    &-next{
+      width: $mediumWidth;
+    }
+    &-add{
+      width: $mediumWidth;
+    }
+    &-exit{
+      width: smallWidth;
+    }
+  }
+}
+@media (max-width: 840px){
+	.tip{
+    &__container{
+      &-text{
+        width: $biggerWidth - 180px;
+      }
+    }
+  }
+}
+@media (max-width: 660px){
+	.tip{
+    &__container{
+      &-text{
+        width: $biggerWidth - 250px;
+      }
+      &-user{
+        width: $bigWidth - 15px;
+      }
+      &-datetime{
+        width: $bigWidth - 15px;
+      }
+      &-next{
+        width: $mediumWidth - 10px;
+      }
+      &-add{
+        width: $mediumWidth - 10px;
+      }
+    }
+  }
+}
