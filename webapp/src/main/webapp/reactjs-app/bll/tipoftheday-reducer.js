@@ -96,7 +96,7 @@ export const getRandomTip= ()=>(dispatch) =>{
     tipApi.getRandomTip().
     then(response => response.json().then(data => {
         if(response.status == 200)
-                dispatch(setTip(data))
+            dispatch(setTip(data))
       })).catch(err => {
         alert("Failed to request random tip: " + JSON.stringify(err));
       });
@@ -106,7 +106,7 @@ export const getRandomTip= ()=>(dispatch) =>{
 export const addTip = () =>(dispatch) =>{
     tipApi.addTip(text)
         .then(result => result.json().then(data => {
-              getRandomTip();
+            dispatch(setTip(data));
         }))
         .catch(err => {
             alert("Failed to update a tip: " + JSON.stringify(err));
