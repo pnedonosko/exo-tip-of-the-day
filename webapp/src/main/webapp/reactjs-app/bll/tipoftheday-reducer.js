@@ -105,9 +105,10 @@ export const getRandomTip= ()=>(dispatch) =>{
 //add new tip to database, and get new random tip
 export const addTip = () =>(dispatch) =>{
     tipApi.addTip(text)
-        .then(result => result.json().then(data => {
-            dispatch(setTip(data));
-        }))
+        .then(response => response.json().then(data => {
+            if(response.status == 200)
+                dispatch(setTip(data))
+      }))
         .catch(err => {
             alert("Failed to update a tip: " + JSON.stringify(err));
         });
