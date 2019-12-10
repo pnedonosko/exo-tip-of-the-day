@@ -2,12 +2,8 @@ import React from 'react';
 
 
 const TipOfTheDayAdd = (props)=>{
-    const newTipRef = React.createRef();
+    let newTipRef = React.createRef();
     //functions that are called during some actions and call passed callbacks in props
-    const disableAddMode = () => {
-    	addTip()
-        props.disableAddMode()
-    }
     const dissolution = () =>{
         props.dissolution()
     }
@@ -15,7 +11,7 @@ const TipOfTheDayAdd = (props)=>{
         props.changeTip(newTipRef.current.value)
     }
     const addTip = () =>{
-    	props.addTip(newTipRef.current.value);
+    	props.addTip();
 
     }
     return (
@@ -29,7 +25,7 @@ const TipOfTheDayAdd = (props)=>{
                         placeholder="Tooltip text..."
                         value={props.newTip}></input>
             </div>
-            <div className={"tip__mediumElement tip__container-save " } onClick={disableAddMode}>Save</div>
+            <div className={"tip__mediumElement tip__container-save " } onClick={addTip}>Save</div>
             <div className={"tip__container-exit tip__smallElement"} onClick={dissolution}>&times;</div>
         </div>
     );

@@ -7,8 +7,7 @@ import {store} from './bll/store'
 class App extends Component{
   render(){
     return(
-      <Provider 
-      	store={store}>
+      <Provider store={store}>
           <TipOfTheDayContainer/>
       </Provider>
     );

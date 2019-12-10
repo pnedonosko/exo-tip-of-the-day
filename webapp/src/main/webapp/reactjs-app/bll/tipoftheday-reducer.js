@@ -16,7 +16,8 @@ let initialState = {
     datatime: "",
     newTip: ""
 };
-let text = "";
+let textTip = "";
+
 
 //switch actions, and writes new data to state
 const tipofthedayReducer = (state = initialState, action) => {
@@ -31,7 +32,10 @@ const tipofthedayReducer = (state = initialState, action) => {
             return {
                 ...state,
                 hasAdd: false,
-                newTip: ""
+                newTip: "",
+                user: action.user,
+                datatime: action.datatime,
+                text: action.text
             };
         }
         case DISSOLUTION: {
@@ -48,6 +52,7 @@ const tipofthedayReducer = (state = initialState, action) => {
                 text: action.text
             };
         }
+
         case CHANGE_TIP: {
             return{
                 ...state,
@@ -64,9 +69,12 @@ export const enableAddMode = () =>{
         type: ENABLE_ADD_MODE
     }
 }
-export const disableAddMode = () =>{
+const disableAddMode = (data) =>{
     return{
-        type: DISABLE_ADD_MODE
+        type: DISABLE_ADD_MODE,
+        user: data.poster,
+        datatime: new Date(data.posted),
+        text: data.text
     }
 }
 export const dissolution = () =>{
@@ -75,7 +83,7 @@ export const dissolution = () =>{
     }
 }
 export const changeTip = (newTip) =>{
-    text = newTip
+    textTip = newTip
     return{
         type: CHANGE_TIP,
         newTip
@@ -91,12 +99,13 @@ const setTip = (data) =>{
 }
 
 
+
 //get random tip, and if status request okM write new data to state
 export const getRandomTip= ()=>(dispatch) =>{
     tipApi.getRandomTip().
     then(response => response.json().then(data => {
         if(response.status == 200)
-            dispatch(setTip(data))
+            dispatch(setTip(data));
       })).catch(err => {
         alert("Failed to request random tip: " + JSON.stringify(err));
       });
@@ -104,11 +113,11 @@ export const getRandomTip= ()=>(dispatch) =>{
 }
 //add new tip to database, and get new random tip
 export const addTip = () =>(dispatch) =>{
-    tipApi.addTip(text)
-        .then(result => result.json().then(data => {
-            dispatch(setTip(data));
-        }))
-        .catch(err => {
+    tipApi.addTip(textTip)
+        .then(response => response.json().then(dataTip => {
+            dispatch(disableAddMode(dataTip));
+            
+      })).catch(err => {
             alert("Failed to update a tip: " + JSON.stringify(err));
         });
 }
