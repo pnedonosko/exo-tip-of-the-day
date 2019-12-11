@@ -32,10 +32,7 @@ const tipofthedayReducer = (state = initialState, action) => {
             return {
                 ...state,
                 hasAdd: false,
-                newTip: "",
-                user: action.user,
-                datatime: action.datatime,
-                text: action.text
+                newTip: ""
             };
         }
         case DISSOLUTION: {
@@ -57,7 +54,7 @@ const tipofthedayReducer = (state = initialState, action) => {
             return{
                 ...state,
                 newTip: action.newTip
-            }
+            };
         }
 
         default:
@@ -68,27 +65,24 @@ export const enableAddMode = () =>{
     return{
         type: ENABLE_ADD_MODE
     }
-}
+};
 const disableAddMode = (data) =>{
     return{
-        type: DISABLE_ADD_MODE,
-        user: data.poster,
-        datatime: new Date(data.posted),
-        text: data.text
+        type: DISABLE_ADD_MODE
     }
-}
+};
 export const dissolution = () =>{
     return{
         type: DISSOLUTION
     }
-}
+};
 export const changeTip = (newTip) =>{
     textTip = newTip
     return{
         type: CHANGE_TIP,
         newTip
     }
-}
+};
 const setTip = (data) =>{
     return{
         type: SET_TIP,
@@ -96,7 +90,7 @@ const setTip = (data) =>{
         datatime: new Date(data.posted),
         text: data.text
     }
-}
+};
 
 
 
@@ -114,9 +108,9 @@ export const getRandomTip= ()=>(dispatch) =>{
 //add new tip to database, and get new random tip
 export const addTip = () =>(dispatch) =>{
     tipApi.addTip(textTip)
-        .then(response => response.json().then(dataTip => {
-            dispatch(disableAddMode(dataTip));
-            
+        .then(addResponse => addResponse.json().then(dataTip => {
+            dispatch(setTip(dataTip));
+            dispatch(disableAddMode());
       })).catch(err => {
             alert("Failed to update a tip: " + JSON.stringify(err));
         });

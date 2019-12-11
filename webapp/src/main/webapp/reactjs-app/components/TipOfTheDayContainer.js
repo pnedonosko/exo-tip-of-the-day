@@ -1,11 +1,11 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
 import TipOfTheDay from './TipOfTheDay';
 import TipOfTheDayAdd from './TipOfTheDayAdd';
 import {connect} from 'react-redux';
 import { enableAddMode,dissolution, getRandomTip, changeTip, addTip} from '../bll/tipoftheday-reducer';
 
 //class container witch serves to determine the desired form, as well as transfer the necessary data ti them
-class TipOfTheDayContainer extends PureComponent{
+class TipOfTheDayContainer extends Component{
   //method which is called when an element is created
   componentDidMount(){
       this.props.getRandomTip();
@@ -25,7 +25,7 @@ class TipOfTheDayContainer extends PureComponent{
   }
 }
 let mapStateToProps = (state) =>({
-  tipofthedayPage: state.tipofthedayPage,
+  tipofthedayPage: state.tipofthedayPage
 });
 
 //transfer data from global store to the container component

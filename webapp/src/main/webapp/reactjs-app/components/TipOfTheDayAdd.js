@@ -5,10 +5,10 @@ const TipOfTheDayAdd = (props)=>{
     let newTipRef = React.createRef();
     //functions that are called during some actions and call passed callbacks in props
     const dissolution = () =>{
-        props.dissolution()
+        props.dissolution();
     }
     const changeTip = () =>{
-        props.changeTip(newTipRef.current.value)
+        props.changeTip(newTipRef.current.value);
     }
     const addTip = () =>{
     	props.addTip();
