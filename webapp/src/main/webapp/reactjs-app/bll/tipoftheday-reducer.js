@@ -109,7 +109,7 @@ export const getRandomTip= ()=>(dispatch) =>{
 export const addTip = () =>(dispatch) =>{
     tipApi.addTip(textTip)
         .then(addResponse => addResponse.json().then(dataTip => {
-            dispatch(setTip(dataTip));
+            getRandomTip();
             dispatch(disableAddMode());
       })).catch(err => {
             alert("Failed to update a tip: " + JSON.stringify(err));
