@@ -17,7 +17,7 @@ let initialState = {
     newTip: ""
 };
 let textTip = "";
-
+let responseData = {};
 
 //switch actions, and writes new data to state
 const tipofthedayReducer = (state = initialState, action) => {
@@ -32,7 +32,10 @@ const tipofthedayReducer = (state = initialState, action) => {
             return {
                 ...state,
                 hasAdd: false,
-                newTip: ""
+                newTip: "",
+                user: responseData.poster,
+                datatime: "",
+                text: responseData.text
             };
         }
         case DISSOLUTION: {
@@ -109,7 +112,8 @@ export const getRandomTip= ()=>(dispatch) =>{
 export const addTip = () =>(dispatch) =>{
     tipApi.addTip(textTip)
         .then(addResponse => addResponse.json().then(dataTip => {
-            getRandomTip();
+            responseData = dataTip;
+            console.log(JSON.stringify(responseData));
             dispatch(disableAddMode());
       })).catch(err => {
             alert("Failed to update a tip: " + JSON.stringify(err));
