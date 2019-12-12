@@ -29,12 +29,13 @@ const tipofthedayReducer = (state = initialState, action) => {
             };
         }
         case DISABLE_ADD_MODE: {
+            let date = new Date(responseData.posted);
             return {
                 ...state,
                 hasAdd: false,
                 newTip: "",
                 user: responseData.poster,
-                datatime: "",
+                datatime: date.toString(),
                 text: responseData.text
             };
         }
@@ -45,10 +46,11 @@ const tipofthedayReducer = (state = initialState, action) => {
             };
         }
         case SET_TIP:{
+            let date = new Date(action.datatime);
             return {
                 ...state,
                 user: action.user,
-                datatime: action.datatime,
+                datatime: date.toString(),
                 text: action.text
             };
         }
@@ -90,7 +92,7 @@ const setTip = (data) =>{
     return{
         type: SET_TIP,
         user: data.poster,
-        datatime: new Date(data.posted),
+        datatime: data.posted,
         text: data.text
     }
 };
