@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright (C) 2019 eXo Platform SAS.
+  Copyright (C) 2020 eXo Platform SAS.
   
   This is free software; you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License as
@@ -25,10 +25,6 @@
         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
   <display-name>tipoftheday</display-name>
 
-  <!-- welcome-file-list>
-    <welcome-file>src/main/webapp/jsp/hello.jsp</welcome-file>
-  </welcome-file-list -->
-  
   <absolute-ordering />
   
   <filter>

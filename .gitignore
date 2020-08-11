@@ -39,6 +39,9 @@ target/
 # Maven Shade plugin
 dependency-reduced-pom.xml
 
+# Npm
+node_modules/
+
 # OS
 .DS_Store
 

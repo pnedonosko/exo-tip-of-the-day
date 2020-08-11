@@ -1,6 +1,6 @@
 <!--
 
-  Copyright (C) 2019 eXo Platform SAS.
+  Copyright (C) 2020 eXo Platform SAS.
 
   This is free software; you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License as
@@ -22,18 +22,12 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd">
   <portlet>
-    <!-- portlet-name>vueSample</portlet-name -->
-    <!-- init-param>
-        <name>portlet-view-dispatched-file-path</name>
-        <value>jsp/hello.jsp</value>
-    </init-param -->
-    <!-- portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class -->
-
     <portlet-name>TipOfTheDayPortlet</portlet-name>
     <portlet-class>org.exoplatform.tipoftheday.portlet.TipOfTheDayPortlet</portlet-class>
     <supports>
       <mime-type>text/html</mime-type>
     </supports>
+    <resource-bundle>locale.portlet.TipOfTheDay</resource-bundle>
     <portlet-info>
       <title>Tip of the day portlet</title>
     </portlet-info>

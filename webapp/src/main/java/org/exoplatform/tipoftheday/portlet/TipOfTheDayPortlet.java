@@ -22,6 +22,9 @@ import java.io.IOException;
 
 import javax.portlet.*;
 
+import org.exoplatform.web.application.JavascriptManager;
+import org.exoplatform.webui.application.WebuiRequestContext;
+
 /**
  * The Class TipOfTheDayPortlet.
  */
@@ -37,7 +40,11 @@ public class TipOfTheDayPortlet extends GenericPortlet {
    */
   @RenderMode(name = "view")
   public void showApp(RenderRequest request, RenderResponse response) throws IOException, PortletException {
+    // Base app markup (container)
     PortletRequestDispatcher prDispatcher = getPortletContext().getRequestDispatcher("/jsp/app.jsp");
     prDispatcher.include(request, response);
+    // App script module
+    JavascriptManager js = ((WebuiRequestContext) WebuiRequestContext.getCurrentInstance()).getJavascriptManager();
+    js.require("SHARED/tipofthedayApp", "tipofthedayApp").addScripts("tipofthedayApp.init();");
   }
 }

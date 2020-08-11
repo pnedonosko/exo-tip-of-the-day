@@ -23,7 +23,7 @@
   xmlns="http://www.exoplatform.org/xml/ns/gatein_resources_1_4">
 
   <!-- CSS for Web Conferencing support in Platform -->
-  <portlet-skin>
+  <!-- portlet-skin>
     <application-name>tipoftheday</application-name>
     <portlet-name>TipOfTheDayPortlet</portlet-name>
     <skin-name>Default</skin-name>
@@ -36,25 +36,18 @@
     <skin-name>Enterprise</skin-name>
     <css-path>/css/app.css</css-path>
     <overwrite>true</overwrite>
-  </portlet-skin>
-
-  <!-- portlet>
-    <name>TipOfTheDayPortlet</name>
-    <module>
-      <depends>
-        <module>tipofthedayBundle</module>
-      </depends>
-    </module>
-  </portlet -->
+  </portlet-skin -->
 
   <module>
     <name>tipofthedayApp</name>
     <script>
-      <minify>false</minify>
-      <path>/js/app.js</path>
+      <path>/js/tipoftheday-app.bundle.js</path>
     </script>
     <depends>
       <module>vue</module>
+    </depends>
+    <depends>
+      <module>vuetify</module>
     </depends>
     <depends>
       <module>eXoVueI18n</module>

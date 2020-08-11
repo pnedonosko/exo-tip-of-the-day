@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-  Copyright (C) 2019 eXo Platform SAS.
+  Copyright (C) 2020 eXo Platform SAS.
 
   This is free software; you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License as
@@ -50,7 +50,7 @@
   </modules>
 
   <properties>
-      <!-- Defaut compiler settings -->
+    <!-- Defaut compiler settings -->
     <maven.compiler.optimize>true</maven.compiler.optimize>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
@@ -59,7 +59,11 @@
     <!-- Dependencies versions                    -->
     <!-- **************************************** -->
     <org.exoplatform.depmgt.version>15</org.exoplatform.depmgt.version>
-    <org.exoplatform.platform.version>5.2.0</org.exoplatform.platform.version>
+    <org.exoplatform.platform.version>5.3.3</org.exoplatform.platform.version>
+    <!-- Maven Plugin for JS and CSS bundling and Unit Test execution -->
+    <com.github.eirslett.frontend.version>1.10.0</com.github.eirslett.frontend.version>
+    <node.version>v12.16.3</node.version>
+    <npm.version>6.14.5</npm.version>
     <!-- for tests -->
     <junit.version>4.12</junit.version>
     <mockito.version>2.0.13-beta</mockito.version>
